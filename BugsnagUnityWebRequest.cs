@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 namespace BugsnagNetworking
@@ -11,15 +12,13 @@ namespace BugsnagNetworking
     public class BugsnagUnityWebRequest : IDisposable
     {
 
-        private static List<BugsnagNetworkListener> _listeners = new List<BugsnagNetworkListener>();
+        public static RequestEvent OnSend = new RequestEvent();
+
+        public static RequestEvent OnComplete = new RequestEvent();
+
+        public static RequestEvent OnAbort = new RequestEvent();
 
         public UnityWebRequest UnityWebRequest;
-
-
-        public static void AddNetworkListener(BugsnagNetworkListener listener)
-        {
-            _listeners.Add(listener);
-        }
 
         // Constructors
         public BugsnagUnityWebRequest()
@@ -206,10 +205,7 @@ namespace BugsnagNetworking
 
         public UnityWebRequestAsyncOperation SendWebRequest()
         {
-            foreach (var listener in _listeners)
-            {
-                listener.OnSend.Invoke(this);
-            }
+            OnSend.Invoke(this);
             var asyncAction = UnityWebRequest.SendWebRequest();
             asyncAction.completed += RequestCompleted;
             return asyncAction;
@@ -217,18 +213,12 @@ namespace BugsnagNetworking
 
         private void RequestCompleted(AsyncOperation obj)
         {
-            foreach (var listener in _listeners)
-            {
-                listener.OnComplete.Invoke(this);
-            }
+            OnComplete.Invoke(this);
         }
 
         public void Abort()
         {
-            foreach (var listener in _listeners)
-            {
-                listener.OnAbort.Invoke(this);
-            }
+            OnAbort.Invoke(this);
             UnityWebRequest.Abort();
         }
 
@@ -346,6 +336,12 @@ namespace BugsnagNetworking
 
         public float uploadProgress => UnityWebRequest.uploadProgress;
         
+
+    }
+
+    [System.Serializable]
+    public class RequestEvent : UnityEvent<BugsnagUnityWebRequest>
+    {
 
     }
 
