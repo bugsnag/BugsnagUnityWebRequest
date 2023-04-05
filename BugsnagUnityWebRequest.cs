@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 namespace BugsnagNetworking
 {
 
-    public class BugsnagWebRequest : IDisposable
+    public class BugsnagUnityWebRequest : IDisposable
     {
 
         private static List<BugsnagNetworkListener> _listeners = new List<BugsnagNetworkListener>();
@@ -22,32 +22,32 @@ namespace BugsnagNetworking
         }
 
         // Constructors
-        public BugsnagWebRequest()
+        public BugsnagUnityWebRequest()
         {
             UnityWebRequest = new UnityWebRequest();
         }
 
-        public BugsnagWebRequest(UnityWebRequest unityWebRequest)
+        public BugsnagUnityWebRequest(UnityWebRequest unityWebRequest)
         {
             UnityWebRequest = unityWebRequest;
         }
 
-        public BugsnagWebRequest(string url)
+        public BugsnagUnityWebRequest(string url)
         {
             UnityWebRequest = new UnityWebRequest(url);
         }
 
-        public BugsnagWebRequest(Uri uri)
+        public BugsnagUnityWebRequest(Uri uri)
         {
             UnityWebRequest = new UnityWebRequest(uri);
         }
 
-        public BugsnagWebRequest(string url, string method)
+        public BugsnagUnityWebRequest(string url, string method)
         {
             UnityWebRequest = new UnityWebRequest(url, method);
         }
 
-        public BugsnagWebRequest(Uri uri, string method)
+        public BugsnagUnityWebRequest(Uri uri, string method)
         {
             UnityWebRequest = new UnityWebRequest(uri, method);
         }
@@ -55,108 +55,108 @@ namespace BugsnagNetworking
         // Static Constructors
 
         // Get
-        public static BugsnagWebRequest Get(string uri)
+        public static BugsnagUnityWebRequest Get(string uri)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Get(uri));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Get(uri));
         }
 
-        public static BugsnagWebRequest Get(Uri uri)
+        public static BugsnagUnityWebRequest Get(Uri uri)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Get(uri));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Get(uri));
         }
 
         // Post
-        public static BugsnagWebRequest Post(string uri, string postData)
+        public static BugsnagUnityWebRequest Post(string uri, string postData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, postData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, postData));
         }
 
-        public static BugsnagWebRequest Post(string uri, WWWForm formData)
+        public static BugsnagUnityWebRequest Post(string uri, WWWForm formData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, formData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, formData));
         }
 
-        public static BugsnagWebRequest Post(string uri, List<IMultipartFormSection> multipartFormSections)
+        public static BugsnagUnityWebRequest Post(string uri, List<IMultipartFormSection> multipartFormSections)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, multipartFormSections));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, multipartFormSections));
         }
 
-        public static BugsnagWebRequest Post(string uri, Dictionary<string, string> formFields)
+        public static BugsnagUnityWebRequest Post(string uri, Dictionary<string, string> formFields)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, formFields));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, formFields));
         }
 
-        public static BugsnagWebRequest Post(Uri uri, string postData)
+        public static BugsnagUnityWebRequest Post(Uri uri, string postData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, postData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, postData));
         }
 
-        public static BugsnagWebRequest Post(Uri uri, WWWForm formData)
+        public static BugsnagUnityWebRequest Post(Uri uri, WWWForm formData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, formData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, formData));
         }
 
-        public static BugsnagWebRequest Post(Uri uri, List<IMultipartFormSection> multipartFormSections)
+        public static BugsnagUnityWebRequest Post(Uri uri, List<IMultipartFormSection> multipartFormSections)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, multipartFormSections));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, multipartFormSections));
         }
 
-        public static BugsnagWebRequest Post(Uri uri, Dictionary<string, string> formFields)
+        public static BugsnagUnityWebRequest Post(Uri uri, Dictionary<string, string> formFields)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, formFields));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, formFields));
         }
 
-        public static BugsnagWebRequest Post(string uri, List<IMultipartFormSection> multipartFormSections, byte[] boundary)
+        public static BugsnagUnityWebRequest Post(string uri, List<IMultipartFormSection> multipartFormSections, byte[] boundary)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, multipartFormSections, boundary));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, multipartFormSections, boundary));
         }
 
-        public static BugsnagWebRequest Post(Uri uri, List<IMultipartFormSection> multipartFormSections, byte[] boundary)
+        public static BugsnagUnityWebRequest Post(Uri uri, List<IMultipartFormSection> multipartFormSections, byte[] boundary)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Post(uri, multipartFormSections, boundary));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Post(uri, multipartFormSections, boundary));
         }
 
         // Put
-        public static BugsnagWebRequest Put(string uri, byte[] bodyData)
+        public static BugsnagUnityWebRequest Put(string uri, byte[] bodyData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Put(uri, bodyData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Put(uri, bodyData));
         }
 
-        public static BugsnagWebRequest Put(string uri, string bodyData)
+        public static BugsnagUnityWebRequest Put(string uri, string bodyData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Put(uri, bodyData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Put(uri, bodyData));
         }
 
-        public static BugsnagWebRequest Put(Uri uri, byte[] bodyData)
+        public static BugsnagUnityWebRequest Put(Uri uri, byte[] bodyData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Put(uri, bodyData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Put(uri, bodyData));
         }
 
-        public static BugsnagWebRequest Put(Uri uri, string bodyData)
+        public static BugsnagUnityWebRequest Put(Uri uri, string bodyData)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Put(uri, bodyData));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Put(uri, bodyData));
         }
 
         // Head
-        public static BugsnagWebRequest Head(string uri)
+        public static BugsnagUnityWebRequest Head(string uri)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Head(uri));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Head(uri));
         }
 
-        public static BugsnagWebRequest Head(Uri uri)
+        public static BugsnagUnityWebRequest Head(Uri uri)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Head(uri));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Head(uri));
         }
 
         // Delete
-        public static BugsnagWebRequest Delete(string uri)
+        public static BugsnagUnityWebRequest Delete(string uri)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Delete(uri));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Delete(uri));
         }
 
-        public static BugsnagWebRequest Delete(Uri uri)
+        public static BugsnagUnityWebRequest Delete(Uri uri)
         {
-            return new BugsnagWebRequest(UnityWebRequest.Delete(uri));
+            return new BugsnagUnityWebRequest(UnityWebRequest.Delete(uri));
         }
 
         // Static Methods
@@ -202,15 +202,13 @@ namespace BugsnagNetworking
         }
 
 
-
-
         // Public methods
 
         public UnityWebRequestAsyncOperation SendWebRequest()
         {
             foreach (var listener in _listeners)
             {
-                listener.OnSend(UnityWebRequest);
+                listener.OnSend.Invoke(this);
             }
             var asyncAction = UnityWebRequest.SendWebRequest();
             asyncAction.completed += RequestCompleted;
@@ -221,7 +219,7 @@ namespace BugsnagNetworking
         {
             foreach (var listener in _listeners)
             {
-                listener.OnComplete(UnityWebRequest);
+                listener.OnComplete.Invoke(this);
             }
         }
 
@@ -229,7 +227,7 @@ namespace BugsnagNetworking
         {
             foreach (var listener in _listeners)
             {
-                listener.OnAbort(UnityWebRequest);
+                listener.OnAbort.Invoke(this);
             }
             UnityWebRequest.Abort();
         }

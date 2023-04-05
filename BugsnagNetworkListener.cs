@@ -1,26 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 namespace BugsnagNetworking
 {
-    public class BugsnagNetworkListener : MonoBehaviour
+    public class BugsnagNetworkListener
     {
+        public RequestEvent OnSend = new RequestEvent();
 
-        public void OnSend(UnityWebRequest unityWebRequest)
-        {
+        public RequestEvent OnComplete = new RequestEvent();
 
-        }
+        public RequestEvent OnAbort = new RequestEvent();
+    }
 
-        public void OnComplete(UnityWebRequest unityWebRequest)
-        {
-
-        }
-
-        public void OnAbort(UnityWebRequest unityWebRequest)
-        {
-
-        }
+    [System.Serializable]
+    public class RequestEvent : UnityEvent<BugsnagUnityWebRequest>
+    {
+        
     }
 }
