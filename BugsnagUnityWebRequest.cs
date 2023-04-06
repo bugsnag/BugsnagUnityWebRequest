@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
+#if !BUGSNAG_UNITY_WEB_REQUEST
 namespace BugsnagNetworking
 {
 
@@ -281,6 +282,12 @@ namespace BugsnagNetworking
             set { UnityWebRequest.downloadHandler = value; }
         }
 
+        public UnityEngine.Networking.UploadHandler uploadHandler
+        {
+            get { return UnityWebRequest.uploadHandler; }
+            set { UnityWebRequest.uploadHandler = value; }
+        }
+
         public float downloadProgress => UnityWebRequest.downloadProgress;
 
         public string error => UnityWebRequest.error;
@@ -346,3 +353,4 @@ namespace BugsnagNetworking
     }
 
 }
+#endif
