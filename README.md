@@ -1,4 +1,4 @@
-# BugsnagUnityWebRequest
+# bugsnag-unity-web-request
 
 This is a wrapper for the Unity [UnityWebRequest](https://docs.unity3d.com/ScriptReference/Networking.UnityWebRequest.html) class.
 
